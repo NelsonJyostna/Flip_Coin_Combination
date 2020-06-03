@@ -8,7 +8,7 @@ function first()
 {
     declare -A Dict
 
-    for (( i=1 ; i<=$n; i++ )) 
+    for (( i=1 ; i<=$n; i++ ))
     do
         combination=""
        for (( j=1; j<=$Numcoin; j++ ))
@@ -32,7 +32,7 @@ function second()
    do
     d=${Dict[$i]}
     echo "$i $((( $d * 100 ) / $n ))%"
-   done
+   done | sort -k2 -nr | awk 'NR==1{print $1"       "$2}'
 }
 
 read -p "Enter number of time you would like to Flip =" n
